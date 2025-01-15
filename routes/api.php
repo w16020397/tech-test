@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RomanNumeralConvertorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/convert', [RomanNumeralConvertorController::class, 'store']);
+Route::get('/recent', [RomanNumeralConvertorController::class, 'recent']);
+Route::get('/top', [RomanNumeralConvertorController::class, 'top']);
